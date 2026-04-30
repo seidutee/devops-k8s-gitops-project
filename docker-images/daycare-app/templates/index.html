@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Daycare Registration</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+
+            /* ✅ Background image (with spaces in filename supported) */
+            background-image: url("{{ url_for('static', filename='GrowingMindsDaycare.jpg') }}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            height: 100vh;
+        }
+
+        /* Dark overlay so text is readable */
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.55);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input {
+            margin: 8px;
+            padding: 10px;
+            width: 250px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="overlay">
+
+    <h1> Daycare Registration</h1>
+
+    <form action="/signup" method="POST">
+        <input type="text" name="parent_name" placeholder="Parent Name" required>
+        <input type="text" name="child_name" placeholder="Child Name" required>
+        <input type="number" name="age" placeholder="Child Age" required>
+
+        <button type="submit">Sign Up</button>
+    </form>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: daycare-app
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/seidutee/devops-k8s-gitops-project.git
+    targetRevision: HEAD
+    path: applications/
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: apps
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

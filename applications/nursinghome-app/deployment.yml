@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nursinghome-app-deployment
+  namespace: apps
+  labels:
+    app: nursinghome-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nursinghome-app
+  template:
+    metadata:
+      labels:
+        app: nursinghome-app
+    spec:
+      containers:
+      - name: nursinghome-app
+        image: nursinghome-app:v2
+        ports:
+        - containerPort: 5002

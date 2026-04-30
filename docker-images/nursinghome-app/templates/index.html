@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nursing Home Registration</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            text-align: center;
+
+            background-image: url("{{ url_for('static', filename='nursinghomeimage.jpg') }}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            height: 100vh;
+        }
+
+        .overlay {
+            background-color: rgba(0,0,0,0.6);
+            height: 100vh;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        input {
+            margin: 8px;
+            padding: 10px;
+            width: 250px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="overlay">
+
+    <h1>🏥 Nursing Home Registration</h1>
+
+    <form action="/register" method="POST">
+        <input type="text" name="name" placeholder="Guardian Name" required><br>
+        <input type="text" name="patient" placeholder="Resident Name" required><br>
+        <input type="number" name="age" placeholder="Age" required><br>
+
+        <button type="submit">Register</button>
+    </form>
+
+</div>
+
+</body>
+</html>

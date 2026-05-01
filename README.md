@@ -35,3 +35,7 @@ kubectl port-forward svc/daycare-app-service -n apps  3000:80
 to install argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 B9Qh3goDq5uwxNyB
+
+
+git config --global seidutee
+git config --global seidutee@gmail.com

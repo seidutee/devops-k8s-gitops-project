@@ -3,10 +3,14 @@ kind: Ingress
 metadata:
   name: apps-ingress
   namespace: apps
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  ingressClassName: nginx
   rules:
   - http:
       paths:
+      
       - path: /daycare-app
         pathType: Prefix
         backend:

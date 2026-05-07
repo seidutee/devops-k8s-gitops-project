@@ -5,6 +5,15 @@ metadata:
   namespace: apps
 spec:
   ingressClassName: nginx
+
+  tls:
+  - hosts:
+    - daycare.local
+    - nursing.local
+    - store.local
+    - nanas-app.local
+    secretName: apps-tls-secret
+
   rules:
   - host: daycare.local
     http:

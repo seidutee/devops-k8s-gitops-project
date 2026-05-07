@@ -35,3 +35,10 @@ spec:
             configMapKeyRef:
               name: mongo-config
               key: mongo-url
+        volumeMounts:
+        - name: webapp-storage
+          mountPath: /data
+      volumes:
+      - name: webapp-storage
+        persistentVolumeClaim:
+          claimName: webapp-pvc             

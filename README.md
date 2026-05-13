@@ -39,3 +39,6 @@ B9Qh3goDq5uwxNyB
 
 git config --global seidutee
 git config --global seidutee@gmail.com
+
+
+grafana password  hlWB469thiEomvbrq7DgOpIN7lJUouUbPNe7Jbym

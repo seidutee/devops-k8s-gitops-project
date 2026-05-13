@@ -1,0 +1,103 @@
+{
+  "annotations": { "list": [] },
+  "editable": true,
+  "panels": [
+    {
+      "type": "stat",
+      "title": "Running Pods",
+      "targets": [
+        {
+          "expr": "count(kube_pod_status_phase{namespace=\"apps\", phase=\"Running\"})"
+        }
+      ],
+      "datasource": "Prometheus",
+      "gridPos": { "h": 4, "w": 6, "x": 0, "y": 0 }
+    },
+    {
+      "type": "stat",
+      "title": "Failed Pods",
+      "targets": [
+        {
+          "expr": "count(kube_pod_status_phase{namespace=\"apps\", phase=\"Failed\"})"
+        }
+      ],
+      "datasource": "Prometheus",
+      "gridPos": { "h": 4, "w": 6, "x": 6, "y": 0 }
+    },
+    {
+      "type": "stat",
+      "title": "Pending Pods",
+      "targets": [
+        {
+          "expr": "count(kube_pod_status_phase{namespace=\"apps\", phase=\"Pending\"})"
+        }
+      ],
+      "datasource": "Prometheus",
+      "gridPos": { "h": 4, "w": 6, "x": 12, "y": 0 }
+    },
+    {
+      "type": "stat",
+      "title": "Pod Restarts (Total)",
+      "targets": [
+        {
+          "expr": "sum(kube_pod_container_status_restarts_total{namespace=\"apps\"})"
+        }
+      ],
+      "datasource": "Prometheus",
+      "gridPos": { "h": 4, "w": 6, "x": 18, "y": 0 }
+    },
+    {
+      "type": "timeseries",
+      "title": "Restart Rate",
+      "targets": [
+        {
+          "expr": "rate(kube_pod_container_status_restarts_total{namespace=\"apps\"}[5m])",
+          "legendFormat": "{{pod}}"
+        }
+      ],
+      "datasource": "Prometheus",
+      "gridPos": { "h": 8, "w": 24, "x": 0, "y": 4 }
+    },
+    {
+      "type": "timeseries",
+      "title": "CPU Usage by Pod",
+      "targets": [
+        {
+          "expr": "sum(rate(container_cpu_usage_seconds_total{namespace=\"apps\"}[5m])) by (pod)",
+          "legendFormat": "{{pod}}"
+        }
+      ],
+      "datasource": "Prometheus",
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 12 }
+    },
+    {
+      "type": "timeseries",
+      "title": "Memory Usage by Pod",
+      "targets": [
+        {
+          "expr": "sum(container_memory_usage_bytes{namespace=\"apps\"}) by (pod)",
+          "legendFormat": "{{pod}}"
+        }
+      ],
+      "datasource": "Prometheus",
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 12 }
+    },
+    {
+      "type": "table",
+      "title": "Pod Readiness",
+      "targets": [
+        {
+          "expr": "kube_pod_status_ready{namespace=\"apps\", condition=\"true\"}",
+          "format": "table"
+        }
+      ],
+      "datasource": "Prometheus",
+      "gridPos": { "h": 8, "w": 24, "x": 0, "y": 20 }
+    }
+  ],
+  "schemaVersion": 37,
+  "style": "dark",
+  "tags": ["kubernetes", "health", "apps"],
+  "title": "Applications Health Dashboard",
+  "version": 1
+}

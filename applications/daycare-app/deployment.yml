@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: daycare-app
-        image: daycare-app:v4
+        image: daycare-app:v5
         ports:
         - containerPort: 5000

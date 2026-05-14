@@ -11,7 +11,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: webapp   # 👈 must match your Service label
+      app: daycare-app   # 👈 must match your Service label
 
   namespaceSelector:
     matchNames:

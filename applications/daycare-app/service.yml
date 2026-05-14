@@ -3,10 +3,13 @@ kind: Service
 metadata:
   name: daycare-app-service
   namespace: apps
+  labels:
+    app: daycare-app   # ✅ ADD THIS
 spec:
   selector:
-    app: daycare-app  
+    app: daycare-app
   ports:
-    - protocol: TCP
+    - name: http       # ✅ ADD THIS
+      protocol: TCP
       port: 80
       targetPort: 5000

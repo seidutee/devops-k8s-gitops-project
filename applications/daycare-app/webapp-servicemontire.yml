@@ -1,7 +1,7 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: webapp-monitor
+  name: daycare-app-service-monitor
   namespace: monitoring
 
   # 🔴 VERY IMPORTANT (must match your Helm release name)

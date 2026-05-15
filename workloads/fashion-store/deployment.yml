@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fashion-store-deployment
+  namespace: apps
+  labels:
+    app: fashion-store
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fashion-store
+  template:
+    metadata:
+      labels:
+        app: fashion-store
+    spec:
+      containers:
+      - name: fashion-store
+        image: docker:v2
+        ports:
+        - containerPort: 80

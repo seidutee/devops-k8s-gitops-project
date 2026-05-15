@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: daycare-app-deployment
+  namespace: apps
+  labels:
+    app: daycare-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: daycare-app  
+  template:
+    metadata:
+      labels:
+        app: daycare-app
+    spec:
+      containers:
+      - name: daycare-app
+        image: daycare-app:v5
+        ports:
+        - containerPort: 5000

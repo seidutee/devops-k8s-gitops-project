@@ -1,0 +1,23 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: daycare-app-service-monitor
+  namespace: monitoring
+
+  # 🔴 VERY IMPORTANT (must match your Helm release name)
+  labels:
+    release: monitoring
+
+spec:
+  selector:
+    matchLabels:
+      app: daycare-app   # 👈 must match your Service label
+
+  namespaceSelector:
+    matchNames:
+      - apps        # 👈 where your app is deployed
+
+  endpoints:
+    - port: http   # 👈 must match Service port name
+      path: /metrics
+      interval: 15s
